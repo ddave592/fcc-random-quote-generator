@@ -1,25 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './styles/App.scss';
+import ReactFCCtest from 'react-fcctest';
+import getQuote from './utils/quoteHandler'
 
-function App() {
+
+
+const QuoteBox = (props) => {
+
+  const handleClick = () => {
+    props.quote = getQuote();
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <div id="quote-box">
+
+      <blockquote className='blockquote'>
+        <p id='text'>
+          {props.quote}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <footer className='blockquote-footer' id="author">
+
+        </footer>
+      </blockquote>
+      <button id='new-quote' className='btn btn-primary' onClick={handleClick}>New Quote!</button>
+      <button id='tweet-quote'></button>
     </div>
+  );
+}
+
+
+const App = () => {
+console.log(getQuote());
+  const [quote, setQuote] = useState(getQuote());
+
+  useEffect(() => {
+    setQuote(
+      getQuote());
+  }, []);
+
+
+  console.log(quote);
+  return (
+    <>
+      <ReactFCCtest />
+      <QuoteBox id='quote-box' quote={quote} />
+    </>
   );
 }
 

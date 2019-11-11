@@ -3,12 +3,14 @@ import './styles/App.scss';
 import ReactFCCtest from 'react-fcctest';
 import getQuote from './utils/quoteHandler'
 
-
+console.log(getQuote().quoteText);
 
 const QuoteBox = (props) => {
 
   const handleClick = () => {
-    props.quote = getQuote();
+    let quoteObj = getQuote();
+    props.quote = quoteObj.quoteText;
+    props.author = quoteObj.quoteAuthor;
   }
 
   return (
@@ -19,7 +21,7 @@ const QuoteBox = (props) => {
           {props.quote}
         </p>
         <footer className='blockquote-footer' id="author">
-
+          {props.author}
         </footer>
       </blockquote>
       <button id='new-quote' className='btn btn-primary' onClick={handleClick}>New Quote!</button>
@@ -30,12 +32,18 @@ const QuoteBox = (props) => {
 
 
 const App = () => {
-console.log(getQuote());
-  const [quote, setQuote] = useState(getQuote());
+  console.log(getQuote());
+  const [quote, setQuote] = useState('Loading...');
+  const [quoteAuthor, setQuoteAuthor] = useState('Loading...');
 
   useEffect(() => {
+    let quoteObj = getQuote();
     setQuote(
-      getQuote());
+      quoteObj.quoteText
+    );
+    setQuoteAuthor(
+      quoteObj.quoteAuthor
+    );
   }, []);
 
 
@@ -43,7 +51,7 @@ console.log(getQuote());
   return (
     <>
       <ReactFCCtest />
-      <QuoteBox id='quote-box' quote={quote} />
+      <QuoteBox id='quote-box' quote={quote} author={quoteAuthor} />
     </>
   );
 }

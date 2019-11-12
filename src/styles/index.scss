@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,500");
 
+@import "../../node_modules/bootstrap/dist/css/bootstrap-grid.css";
 
 body {
   margin: 0;
@@ -9,6 +10,50 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: "Raleway", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+// vars
+$spacer: 8px;
+$transition-speed: 0.7s; // transition-duration
+$transition-easing: ease-in-out; // transition-timing-function
+$max-value-of-transitioned-property: 100%;
+$primary-color: #00bcd4;
+$primary-color-dark: #00abc1;
+$secondary-color: #d41900;
+$secondary-color-dark: #d41900;
+$triadic-blue: #1900d4;
+$triadic-purple: #d400bb;
+
+// btn
+
+.btn {
+  margin: $spacer;
+  &-primary {
+    @extend .btn
+  }
 }
+
+// mixin
+@mixin fill-goes-right {
+  outline: 0;
+  cursor: pointer;
+  color: #fcfafa;
+  transition: color 0.7s ease-in-out;
+
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition-property: width, background-color;
+    width: 0;
+    background-color: #1e3541;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+  }
+}
+// style
+.btn-fill-hover {
+  @include fill-goes-right;
+}
+/***       ***/
+
+// quote-box ,

@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import './styles/App.scss';
+import './styles/index.scss';
 import ReactFCCtest from 'react-fcctest';
-import getQuote from './utils/quoteHandler'
+import getQuote from './utils/quoteHandler';
+import twitterIcon from './icons/twitter-social-circle-color.png';
 
 console.log(getQuote().quoteText);
 
 const QuoteBox = (props) => {
 
-  const handleClick = () => {
-    let quoteObj = getQuote();
-    props.quote = quoteObj.quoteText;
-    props.author = quoteObj.quoteAuthor;
-  }
-
   return (
-    <div id="quote-box">
+    <>
+      <nav className=" nav navbar-expand-lg navbar-light mx-auto  bg-primary skew">
+        <span className="navbar-brand text-primary mx-auto my-2 h1">Quote Generator</span>
+      </nav>
 
-      <blockquote className='blockquote'>
-        <p id='text'>
-          {props.quote}
-        </p>
-        <footer className='blockquote-footer' id="author">
-          {props.author}
-        </footer>
-      </blockquote>
-      <button id='new-quote' className='btn btn-primary' onClick={handleClick}>New Quote!</button>
-      <button id='tweet-quote'></button>
-    </div>
+      <div id="quote-box">
+        <blockquote>
+          <p id='text'>
+            {props.quote}
+          </p>
+          <footer id="author">
+            {props.author}
+          </footer>
+        </blockquote>
+        <button id='new-quote' className='btn-primary' onClick={props.onClick}>New Quote!</button>
+        <a href={`https://www.twitter.com/intent/tweet?text='${props.quote.split(' ').reduce((previous, current) => previous + '+' + current)}' - ${props.author}`} id='tweet-quote'><img width="35px" src={twitterIcon} /></a>
+      </div>
+    </>
   );
 }
 
@@ -47,11 +47,21 @@ const App = () => {
   }, []);
 
 
+  const handleClick = () => {
+    let quoteObj = getQuote();
+    setQuote(
+      quoteObj.quoteText
+    );
+    setQuoteAuthor(
+      quoteObj.quoteAuthor
+    );
+  }
+
   console.log(quote);
   return (
     <>
       <ReactFCCtest />
-      <QuoteBox id='quote-box' quote={quote} author={quoteAuthor} />
+      <QuoteBox id='quote-box' quote={quote} author={quoteAuthor} onClick={handleClick} />
     </>
   );
 }

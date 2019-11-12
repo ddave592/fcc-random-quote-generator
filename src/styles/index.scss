@@ -1,14 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,500");
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,200,800');
 
 @import "../../node_modules/bootstrap/dist/css/bootstrap-grid.css";
-
-body {
-  margin: 0;
-  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 // vars
 $spacer: 8px;
@@ -21,39 +13,116 @@ $secondary-color: #d41900;
 $secondary-color-dark: #d41900;
 $triadic-blue: #1900d4;
 $triadic-purple: #d400bb;
+$main-background: #191717;
 
-// btn
+body {
+  background-color: $main-background;
+  margin: 0;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+// btn + button group
+
+.button-group {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.tweet{
+  position: absolute;
+  right:10px;
+}
 
 .btn {
-  margin: $spacer;
-  &-primary {
-    @extend .btn
-  }
-}
-
-// mixin
-@mixin fill-goes-right {
-  outline: 0;
   cursor: pointer;
-  color: #fcfafa;
-  transition: color 0.7s ease-in-out;
-
-  &:after {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: "Roboto";
+  margin: $spacer;
+  padding: $spacer * 2 $spacer * 2.5 $spacer * 2 $spacer * 2.5;
+  font-weight: 900;
+  &:focus {
+    outline: inherit;
+  }
+  &:active {
+    border-style: solid;
+  }
+  &-primary {
+    @extend .btn;
+    background-color: $primary-color;
+    color: white;
+    border-color: $primary-color-dark;
+  }
+  &-outline {
+    @extend .btn;
+    background-color: #1e1f2221;
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+  &:before {
     content: "";
-    position: absolute;
-    z-index: -1;
-    transition-property: width, background-color;
-    width: 0;
-    background-color: #1e3541;
-    transition-duration: 0.7s;
-    transition-timing-function: ease-in-out;
-    transition-delay: 0s;
+    background-color: $primary-color;
+    transform: translateX(-70%);
+    transition: 0.3s;
+  }
+  &:hover {
+    transform: translateX(0%);
+  }
+
+  &:hover {
+    // color: tint($btn-color, 75%);
+
+    &:before {
+      transform: translateX(0);
+    }
   }
 }
-// style
-.btn-fill-hover {
-  @include fill-goes-right;
-}
-/***       ***/
 
-// quote-box ,
+// navbar
+
+h1.title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  color: #00bcd4;
+  text-align: center;
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+}
+
+// Quote card
+
+.quote-card {
+  margin: 0 auto;
+  padding: $spacer * 2;
+  background-color: rgba(89, 127, 142, 0.09);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  @media (min-width: 768px) {
+    border-radius: 20px;
+    max-width: 600px;
+  }
+  p#text {
+    line-height: 25px;
+    margin-bottom:1px;
+    padding-top: $spacer * 2;
+    color:white;
+    font-weight:700;
+    text-align: center;
+  }
+  footer {
+    font-variant: small-caps;
+    color: #f1f1f1;
+    font-weight:200;
+    text-align: right;
+    // padding-bottom: $spacer;
+  }
+}

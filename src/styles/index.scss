@@ -103,7 +103,7 @@ h1.title {
 
 .quote-card {
   margin: 0 auto;
-  padding: $spacer * 2;
+  padding: $spacer * 3;
   background-color: rgba(89, 127, 142, 0.09);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   @media (min-width: 768px) {
@@ -111,18 +111,19 @@ h1.title {
     max-width: 600px;
   }
   p#text {
-    line-height: 25px;
-    margin-bottom:1px;
-    padding-top: $spacer * 2;
     color:white;
+    line-height: 25px;
     font-weight:700;
     text-align: center;
+    margin-bottom:$spacer / 2;
+    // padding-top: $spacer * 2;
   }
   footer {
-    font-variant: small-caps;
+    font-size: 0.98rem;
     color: #f1f1f1;
     font-weight:200;
     text-align: right;
-    // padding-bottom: $spacer;
+    padding-right: 25px;
+    padding-bottom: $spacer;
   }
 }

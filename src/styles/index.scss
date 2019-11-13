@@ -25,6 +25,23 @@ body {
 }
 
 
+.past-quote.quote-card{
+  border-radius: 0!important;
+  margin: $spacer*2 auto;
+  &:hover {
+    border-left: 1px solid $primary-color!important;
+    cursor: pointer;
+  }
+}
+
+.past-quote.quote-card .btn-outline{
+  display: none!important;
+}
+
+.past-quote.quote-card .tweet{
+  display:none!important;
+}
+
 // btn + button group
 
 .button-group {

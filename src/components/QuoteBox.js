@@ -17,7 +17,12 @@ export const QuoteBox = (props) => {
     </blockquote>
     <div className="button-group">
       <button id='new-quote' className='btn-outline btn-0' onClick={props.onClick}>New Quote!</button>
-      <a className='tweet'  href={`https://www.twitter.com/intent/tweet?text='${props.quote.quoteText.split(' ').reduce((previous, current) => previous + '+' + current)}'%20${'- ' + props.quote.quoteAuthor}`} id='tweet-quote'><img width="35px" alt="Twitter Icon" src={twitterIcon} /></a>
+      <a className='tweet'  href={`https://www.twitter.com/intent/tweet?text='${props.quote.quoteText.split(' ').reduce((previous, current) => previous + '+' + current)}'%20${'- ' + props.quote.quoteAuthor}`} id='tweet-quote'>
+      <span class="tweet-text">
+        Tweet it
+      </span>
+        <img width="35px" alt="Twitter Icon" src={twitterIcon} />
+        </a>
     </div>
   </div>);
 };

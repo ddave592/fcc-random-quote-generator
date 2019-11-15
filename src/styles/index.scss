@@ -53,7 +53,25 @@ body {
 .tweet {
   position: absolute;
   right: 10px;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  span.tweet-text{
+    text-decoration: none !important;
+    color: #1da1f2;
+    font-size: 14px;
+    position: relative;
+    border-radius: 10px;
+    left: 21px;
+    padding: 5px 29px 5px 11px;
+    border: 1px solid #1da1f2;
+    z-index: 1;
+  }
+  img {
+    z-index: 2;
+  }
 }
+
 
 .btn {
   z-index: 1;
@@ -121,7 +139,7 @@ nav {
 }
 
 h1.title {
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   font-size: 3rem;
   text-transform: uppercase;
   color: #191717;

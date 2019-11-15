@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,200,800');
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto:300,400,900&display=swap");
 
 @import "../../node_modules/bootstrap/dist/css/bootstrap-grid.css";
 
@@ -24,39 +24,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-.past-quote.quote-card{
-  border-radius: 0!important;
-  margin: $spacer*2 auto;
+.past-quote.quote-card {
+  border-radius: 0 !important;
+  margin: $spacer * 2 auto;
   &:hover {
-    border-left: 10px solid $primary-color!important;
+    border-left: 10px solid $primary-color !important;
     cursor: pointer;
   }
 }
 
-.past-quote.quote-card .btn-outline{
-  display: none!important;
+.past-quote.quote-card .btn-outline {
+  display: none !important;
 }
 
-.past-quote.quote-card .tweet{
-  display:none!important;
+.past-quote.quote-card .tweet {
+  display: none !important;
 }
 
 // btn + button group
 
 .button-group {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
 
-.tweet{
+.tweet {
   position: absolute;
-  right:10px;
+  right: 10px;
 }
 
 .btn {
+  z-index: 1;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -98,7 +98,7 @@ body {
   }
 
   &:hover {
-     color: $main-background;
+    color: $main-background;
 
     &:before {
       transform: translateX(0);
@@ -109,16 +109,32 @@ body {
 
 // navbar
 
-h1.title {
-  font-size: 2rem;
-  text-transform: uppercase;
-  font-family: sans-serif;
-  color: #00bcd4;
-  text-align: center;
-  @media (min-width: 768px) {
-    font-size: 3rem;
-  }
+nav {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: #01bcd5;
+  height: 200px;
+}
 
+.title-container {
+  display: flex;
+  justify-content: center;
+}
+
+h1.title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #191717;
+  padding: 2.83rem 0 0;
+  z-index: 1;
+  margin-top: 20px;
+  @media (min-width: 768px) {
+    line-height: 0.9;
+    font-size: 3rem;
+    border-bottom: 3px solid #191717;
+    width: 130px;
+    margin-top: 0;
+  }
 }
 
 // Quote card
@@ -126,24 +142,32 @@ h1.title {
 .quote-card {
   margin: 0 auto;
   padding: $spacer * 3;
-  background-color: rgba(89, 127, 142, 0.09);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: rgb(31, 32, 34);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  top: -31px;
   @media (min-width: 768px) {
     border-radius: 20px;
     max-width: 600px;
   }
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
   p#text {
-    color:white;
+    color: white;
     line-height: 25px;
-    font-weight:700;
+    font-weight: 500;
     text-align: center;
-    margin-bottom:$spacer / 2;
+    margin-bottom: $spacer / 2;
     // padding-top: $spacer * 2;
   }
   footer {
     font-size: 0.98rem;
     color: #f1f1f1;
-    font-weight:200;
+    font-weight: 200;
     text-align: right;
     padding-right: 25px;
     padding-bottom: $spacer;

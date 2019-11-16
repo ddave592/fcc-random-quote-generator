@@ -66,7 +66,12 @@ body {
     padding: 5px 29px 5px 11px;
     border: 1px solid #1da1f2;
     z-index: 1;
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
   }
+
   img {
     z-index: 2;
   }
@@ -95,13 +100,13 @@ body {
     @extend .btn;
     background-color: $primary-color;
     color: white;
-    border-color: $primary-color-dark;
+    border: $primary-color-dark solid 1px;
   }
   &-outline {
     @extend .btn;
     background-color: #1e1f2221;
     color: $primary-color;
-    border-color: $primary-color;
+    border: $primary-color solid 1px;
   }
   &:before {
     content: "";

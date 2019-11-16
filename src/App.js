@@ -32,8 +32,8 @@ const App = () => {
     };
     setQuote(quoteObj);
   }, []);
-console.log(pastQuote.length);
 
+//handleclick button
   const handleClick = () => {
     let quoteObj = getQuote();
     console.log(pastQuote.length);
@@ -60,10 +60,15 @@ console.log(pastQuote.length);
   }) : null;
 
 
-  //       to-dos:
-  // - add transition animations to new main-quote-container components + make current-quote unmount and have new one mount to control transitions
-  // - have history components animate down as new ones are added to array
-  // - add react-springs for history components
+  
+  /*********   to-dos:    *********
+   * 
+   * - add transition animations to new main-quote-container components + make current-quote unmount and have new one mount to control transitions
+   * - have history components animate down as new ones are added to array
+   * - add react-springs for history components
+   * 
+   * 
+   ***************/
 
 
 

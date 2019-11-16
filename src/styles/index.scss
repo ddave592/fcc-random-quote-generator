@@ -24,21 +24,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.past-quote.quote-card {
-  border-radius: 0 !important;
-  margin: $spacer * 2 auto;
-  &:hover {
-    border-left: 10px solid $primary-color !important;
-    cursor: pointer;
-  }
-}
-
-.past-quote.quote-card .btn-outline {
-  display: none !important;
-}
-
-.past-quote.quote-card .tweet {
-  display: none !important;
+// anchor
+.box-anchor:any-link {
+  text-decoration: none;
 }
 
 // btn + button group
@@ -56,7 +44,7 @@ body {
   display: flex;
   text-decoration: none;
   align-items: center;
-  span.tweet-text{
+  span.tweet-text {
     text-decoration: none !important;
     color: #1da1f2;
     font-size: 14px;
@@ -76,7 +64,6 @@ body {
     z-index: 2;
   }
 }
-
 
 .btn {
   z-index: 1;
@@ -138,41 +125,80 @@ nav {
   height: 200px;
 }
 
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .title-container {
   display: flex;
   justify-content: center;
+
+  .h1-container {
+    @media (min-width: 768px) {
+      width: 130px;
+      margin: 44px 0;
+      display: block;
+      border-bottom: none;
+    }
+    border-bottom: 3px solid #191717;
+    display: flex;
+    margin-top: 50px;
+
+    h1.title {
+      font-family: "Bebas Neue", cursive;
+      font-size: 3rem;
+      text-transform: uppercase;
+      color: #191717;
+      z-index: 1;
+      margin: 0;
+      padding: 0;
+      margin-left: 10px;
+      @media (min-width: 768px) {
+        line-height: 0.9;
+        font-size: 3rem;
+        margin: 0;
+        padding: 0;
+        &:last-of-type::after {
+          display: flex;
+          content: "";
+          border-bottom: 3px solid #191717;
+          animation-name: fadein;
+          animation-duration: 1s;
+        }
+      }
+    }
+  }
 }
 
-h1.title {
-  font-family: "Bebas Neue", cursive;
-  font-size: 3rem;
-  text-transform: uppercase;
-  color: #191717;
-  padding: 2.83rem 0 0;
-  z-index: 1;
-  margin-top: 20px;
-  @media (min-width: 768px) {
-    line-height: 0.9;
-    font-size: 3rem;
-    border-bottom: 3px solid #191717;
-    width: 130px;
-    margin-top: 0;
-  }
+// containers
+
+.main-quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -31px;
+}
+
+.current-quote-container {
+  min-height: 270px;
 }
 
 // Quote card
 
 .quote-card {
-  margin: 0 auto;
   padding: $spacer * 3;
   background-color: rgb(31, 32, 34);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  position: relative;
-  top: -31px;
   @media (min-width: 768px) {
     border-radius: 20px;
-    max-width: 600px;
+    width: 600px;
   }
 
   &:hover {
@@ -194,5 +220,36 @@ h1.title {
     text-align: right;
     padding-right: 25px;
     padding-bottom: $spacer;
+  }
+}
+// past quote title
+
+.history-title {
+  display: none;
+  margin: 0 auto 20px;
+  text-align: center;
+  color: white;
+  &.display {
+    display: block;
+  }
+}
+// past-quote
+
+.past-quote.quote-card {
+  border-radius: 0 !important;
+  margin-top: $spacer * 1;
+  margin-bottom: $spacer * 1;
+  &:hover {
+    border-left: 10px solid $primary-color !important;
+    cursor: pointer;
+  }
+  blockquote {
+    margin: $spacer;
+  }
+  .tweet {
+    display: none !important;
+  }
+  .btn-outline {
+    display: none !important;
   }
 }

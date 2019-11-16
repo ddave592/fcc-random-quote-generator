@@ -6,6 +6,6 @@ Live link:
 https://quote-generator-ddave592.herokuapp.com/
 
 ## TO-DO:
-~~- add quote history states
+~~- add quote history states~~
 - add animation/transition between main quote-box and history quote-box
-~~- build out quote history section (styling etc...)
+~~- build out quote history section (styling etc...)~~

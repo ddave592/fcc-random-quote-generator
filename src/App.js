@@ -1,27 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './styles/index.scss';
-import ReactFCCtest from 'react-fcctest';
 import getQuote from './utils/quoteHandler';
 import { QuoteBox } from './components/QuoteBox';
 
 const App = () => {
 
   const [quote, setQuote] = useState({ quoteText: 'Loading...', quoteAuthor: 'Loading...' });
-  // const [pastQuote, setPastQuote] = useState([]);
-
-
-  // let pastQuoteArr = [{
-  //   "quoteAuthor": "Thomas Edison",
-  //   "quoteText": "Genius is one percent inspiration and ninety-nine percent perspiration."
-  // },
-  // {
-  //   "quoteAuthor": "Yogi Berra",
-  //   "quoteText": "You can observe a lot just by watching."
-  // },
-  // {
-  //   "quoteAuthor": "Abraham Lincoln",
-  //   "quoteText": "A house divided against itself cannot stand."
-  // }]
+  const [pastQuote, setPastQuote] = useState([]);
 
   useEffect(() => {
     let quoteObj = getQuote();
@@ -34,10 +19,8 @@ const App = () => {
 
   const handleClick = () => {
     let quoteObj = getQuote();
-    // setPastQuote(pastQuote + {
-    //   'quoteText': quote.quoteText,
-    //   'quoteAuthor': quote.quoteAuthor
-    // });
+    setPastQuote([...pastQuote, {...quote}]
+    );
     if (!quoteObj.quoteAuthor) {
       quoteObj.quoteAuthor = 'Unknown'
     };
@@ -46,16 +29,31 @@ const App = () => {
     );
   }
 
+
+//       to-dos:
+// - add transition animations to new main-quote-container components + make current-quote unmount and have new one mount to control transitions
+// - have history components animate down as new ones are added to array
+// restructure div containers
+
   return (
     <>
       <nav>
         <div className="title-container">
-          <h1 class="title">Quote Generator.</h1>
+          <h1 className="title">Quote Generator.</h1>
         </div>
       </nav>
-      <ReactFCCtest />
-      <QuoteBox id='quote-box' quote={quote} onClick={handleClick} />
-      {/* {pastQuote ? [...pastQuote].map(x => <QuoteBox cName='past-quote' quote={x.quoteText} author={x.quoteAuthor} onClick={handleClick} />) : null} */}
+
+      <div className='main-quote-container'>
+        <div className='current-quote-container'>
+          <QuoteBox id='quote-box' quote={quote} onClick={handleClick} buttons={true} />
+        </div>
+        <div className='history-quote-container'>
+          <h2 className='history-title'>
+            Past Quotes:
+        </h2>
+          {pastQuote ? [...pastQuote].reverse().map((x) => <QuoteBox cName='past-quote' key={x.id} quote={x} buttons={false} />) : null}
+        </div>
+      </div>
     </>
   );
 }

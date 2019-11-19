@@ -19,6 +19,7 @@ https://quote-generator-ddave592.herokuapp.com/
 - [x] add quote history states
 - [x] build out quote history section (styling etc...)
 - [ ] add animation/transition between main quote-box and history quote-box
+- [ ] add transition for new and outgoing quotes in history.
 
 ### New features:
  - [ ] add local quote caching through cookie (get rid of quote that might've already been seen) + then maybe have 'clear cache' button.

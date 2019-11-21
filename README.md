@@ -20,6 +20,7 @@ https://quote-generator-ddave592.herokuapp.com/
 - [x] build out quote history section (styling etc...)
 - [ ] add animation/transition between main quote-box and history quote-box
 - [ ] add transition for new and outgoing quotes in history. (making more apparent that new quotes are coming and going)
+- [ ] keep full history state + implement "show more" button when history is 3+ that opens up to full history (and uses lazy loading?).
 
 ### New features:
  - [ ] add local quote caching through cookie (get rid of quote that might've already been seen) + then maybe have 'clear cache' button.

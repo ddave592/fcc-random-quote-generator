@@ -8,7 +8,7 @@ Initially started in response to the 'Front End Libraries Certification' at www.
 After completing project requirements I questioned:
 **'How can I make this app more functional to make it more appealing to use as a sort of "Daily quote tweeter?" '**
 
-Long story short I've resorted to added transitions/animations (still to finish) and a quote history that is clickable and will tweet the clicked on tweet.
+Long story short I've resorted to adding transitions/animations (still to finish) and a quote history that will setup a tweet with the clicked on quote.
 
 ### Demo
 https://quote-generator-ddave592.herokuapp.com/

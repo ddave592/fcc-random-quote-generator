@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Initially started in response to the 'Front End Libraries Certification' at www.freecodecamp.org/. Project name is [Build a Random Quote Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine) (click on link for project prerequisites)
 
 After completing project requirements I questioned:
-**'How Can I make this app more functional to make it more appealing to use as a sort of "Daily quote tweeter?" '**
+**'How can I make this app more functional to make it more appealing to use as a sort of "Daily quote tweeter?" '**
 
 Long story short I've resorted to added transitions/animations (still to finish) and a quote history that is clickable and will tweet the clicked on tweet.
 

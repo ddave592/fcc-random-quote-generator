@@ -55,10 +55,9 @@ const App = () => {
     setQuote(quoteObj);
   }, []);
 
-//handleclick button
+  //handleclick button
   const handleClick = () => {
     let quoteObj = getQuote();
-    console.log(pastQuote.length);
     if (pastQuote.length < 3) {
       setPastQuote([...pastQuote, { ...quote }]
       );
@@ -81,46 +80,43 @@ const App = () => {
     return <QuoteBox cName='past-quote' key={x.id} quote={x} buttons={false} />
   }) : null;
 
-
-  
-  /*********   to-dos:    *********
-   * 
-   * - add transition animations to new main-quote-container components + make current-quote unmount and have new one mount to control transitions
-   * - have history components animate down as new ones are added to array
-   * - add react-springs for history components
-   * 
-   * 
-   ***************/
-
-
-
   return (
     <>
-      <nav>
-        <div className="title-container">
-          <div className="h1-container">
-            {trail.map(({ x, height, ...rest }, index) => (
-              <animated.h1
-                className="title"
-                key={items[index]}
-                style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
-                {items[index]}
-              </animated.h1>
-            ))}
+      <div id='page-container'>
+        <div id="content-wrap">
+          {/* navbar */}
+          <nav>
+            <div className="title-container">
+              <div className="h1-container">
+                {trail.map(({ x, height, ...rest }, index) => (
+                  <animated.h1
+                    className="title"
+                    key={items[index]}
+                    style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
+                    {items[index]}
+                  </animated.h1>
+                ))}
+              </div>
+            </div>
+          </nav>
+
+          {/* quote container */}
+          <div className='main-quote-container'>
+            <div className='current-quote-container'>
+              <QuoteBox id='quote-box' quote={quote} onClick={handleClick} buttons={true} />
+            </div>
+            <div className='history-quote-container'>
+              <h2 className={historyClasses}>
+                Past Quotes:
+        </h2>
+              {pastQuoteMap}
+            </div>
           </div>
         </div>
-      </nav>
-
-      <div className='main-quote-container'>
-        <div className='current-quote-container'>
-          <QuoteBox id='quote-box' quote={quote} onClick={handleClick} buttons={true} />
-        </div>
-        <div className='history-quote-container'>
-          <h2 className={historyClasses}>
-            Past Quotes:
-        </h2>
-          {pastQuoteMap}
-        </div>
+        {/* footer */}
+        <footer className="bottom-footer">
+          made by <a href="https://github.com/ddave592">@David</a>
+        </footer>
       </div>
     </>
   );

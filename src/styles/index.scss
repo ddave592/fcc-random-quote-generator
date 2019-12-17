@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto:300,400,900&display=swap");
 
-
 // vars
 $spacer: 8px;
 $transition-speed: 0.7s; // transition-duration
@@ -21,6 +20,17 @@ body {
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// full height container
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem; 
 }
 
 // anchor
@@ -187,7 +197,7 @@ nav {
 }
 
 .current-quote-container {
-  width:100%;
+  width: 100%;
   min-height: 270px;
 }
 
@@ -195,7 +205,7 @@ nav {
 
 .quote-card {
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
   padding: $spacer * 3;
   background-color: rgb(31, 32, 34);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -223,7 +233,7 @@ nav {
     }
     margin: $spacer;
   }
-  footer {
+  footer#author {
     font-size: 0.98rem;
     color: #f1f1f1;
     font-weight: 200;
@@ -261,5 +271,40 @@ nav {
   }
   .btn-outline {
     display: none !important;
+  }
+}
+
+// footer
+
+footer.bottom-footer {
+  display: none;
+  @media (min-width: 600px) {
+    height:1rem; 
+    color: beige;
+    display: block;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #1c1e1f;
+    padding: 10px;
+    text-align: center;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+      sans-serif;
+    & a {
+      overflow: hidden;
+      background-color: $primary-color;
+      margin-left: 5px;
+      color: #191818;
+      font-weight: 500;
+      border-radius: 10px;
+      padding: 0 5px;
+      text-decoration: none;
+    }
+    &:any-link {
+      color: white;
+      text-decoration: none !important;
+      color: #1da1f2;
+    }
   }
 }

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useTrail, animated, useTransition, useSpring, useChain, config } from 'react-spring'
+import React, { useState, useEffect } from 'react';
+import { useTrail, animated } from 'react-spring'
 import getQuote from './utils/quoteHandler';
 import { QuoteBox } from './components/QuoteBox';
 import './styles/index.scss';
@@ -10,7 +10,6 @@ const App = () => {
   //init states
   const [quote, setQuote] = useState({ quoteText: 'Loading...', quoteAuthor: 'Loading...' });
   const [pastQuote, setPastQuote] = useState([]);
-  const [PastQuoteOpen, setPastQuoteOpen] = useState(false);
 
   // title animation
   const items = ['Quote', ' Generator.']

@@ -308,3 +308,9 @@ footer.bottom-footer {
     }
   }
 }
+
+// normalize type css
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}

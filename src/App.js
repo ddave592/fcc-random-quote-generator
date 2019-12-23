@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './styles/index.scss';
+import { useTrail, animated, useTransition, useSpring, useChain, config } from 'react-spring'
 import getQuote from './utils/quoteHandler';
 import { QuoteBox } from './components/QuoteBox';
-import { useTrail, animated, useTransition, useSpring, useChain, config } from 'react-spring'
+import './styles/index.scss';
 
 
 const App = () => {
@@ -11,27 +11,6 @@ const App = () => {
   const [quote, setQuote] = useState({ quoteText: 'Loading...', quoteAuthor: 'Loading...' });
   const [pastQuote, setPastQuote] = useState([]);
   const [PastQuoteOpen, setPastQuoteOpen] = useState(false);
-
-  // pastQuote animation ** not finished **  https://codesandbox.io/embed/2v716k56pr https://www.react-spring.io/
-  const springRef = useRef();
-  const { size, opacity, ...rest } = useSpring({
-    ref: springRef,
-    config: config.stiff,
-    from: { size: '20%', background: 'hotpink' },
-    to: { size: open ? '100%' : '20%', background: open ? 'white' : 'hotpink' }
-  })
-
-  const transRef = useRef()
-  const transitions = useTransition(open ? data : [], item => item.name, {
-    ref: transRef,
-    unique: true,
-    trail: 400 / data.length,
-    from: { opacity: 0, transform: 'scale(0)' },
-    enter: { opacity: 1, transform: 'scale(1)' },
-    leave: { opacity: 0, transform: 'scale(0)' }
-  })
-// above not finished (comment out)
-
 
   // title animation
   const items = ['Quote', ' Generator.']

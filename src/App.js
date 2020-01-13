@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTrail, animated } from 'react-spring'
+import { Transition, useTrail, animated } from 'react-spring'
 import getQuote from './utils/quoteHandler';
 import { QuoteBox } from './components/QuoteBox';
 import './styles/index.scss';
